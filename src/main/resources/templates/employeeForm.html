@@ -2,9 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Employee Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class="container">
+    <h1>Input employee's data</h1>
+    Please be informed that all below data is required!
+    <!--<br />-->
+    <form action="/employees" method="post">
+        <div class="form-group">
+            <label for="exampleInputName2">Name</label>
+            <input required type="text" class="form-control input-small" id="exampleInputName2" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputName3">Surname</label>
+            <input required type="text" class="form-control input-small" id="exampleInputName3" placeholder="Surname">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputName3">Role</label>
+            <select class="form-control input-small">
+                <option>Trainee</option>
+                <option>Junior Specialist</option>
+                <option>Specialist</option>
+                <option>Team Leader</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputName3">Capacity</label>
+            <select class="form-control input-small">
+                <option>0,5</option>
+                <option>0,75</option>
+                <option>1</option>
+            </select>
+        </div>
+
+        <button type="Save" class="btn btn-success">Save</button>
+    </form>
+
+</div>
 
 </body>
 </html>
