@@ -1,4 +1,7 @@
 package com.example.workload.repository;
 
-public interface TaskRepository {
+import com.example.workload.model.Task;
+import org.springframework.data.repository.CrudRepository;
+
+public interface TaskRepository extends CrudRepository<Task,Integer> {
 }

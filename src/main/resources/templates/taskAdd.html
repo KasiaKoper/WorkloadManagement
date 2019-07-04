@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-$END$
+
+<div class="container">
+    <h1>Add task</h1>
+    <form th:object="${task}" th:action="@{/posts}" th:method="post">
+        <div class="form-group">
+            <label>Description</label>
+            <input th:field="*{description}" type="text"
+                   class="form-control input-small"
+                   placeholder="Description"> required
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg ">Add</button>
+    </form>
+</div>
+
+
 </body>
 </html>
