@@ -25,23 +25,29 @@
 
         <div class="form-group">
             <label for="exampleInputName3">Role</label>
-            <select class="form-control input-small">
-                <option value=""> -- </option>
-                <option>Trainee</option>
-                <option>Junior Specialist</option>
-                <option>Specialist</option>
-                <option>Team Leader</option>
+            <select th:field="*{role}" class="form-control input-small"/>
+                <div>
+                    <option value=""> -- </option>
+                    <option th:value="Trainee" th:text="Trainee"></option>
+                    <option th:value="JuniorSpecialist" th:text="Junior_Specialist"></option>
+                    <option th:value="Specialist" th:text="Specialist"></option>
+                    <option th:value="TeamLeader" th:text="Team_Leader"></option>
+                </div>
             </select>
+
         </div>
 
         <div class="form-group">
             <label for="exampleInputName3">Capacity</label>
-            <select class="form-control input-small">
-                <option value=""> -- </option>
-                <option>0,5</option>
-                <option>0,75</option>
-                <option>1</option>
+            <select th:field="*{capacity}" class="form-control input-small"/>
+                <div>
+                    <option value=0> -- </option>
+                    <option th:value="8" th:text="8h_per_day"></option>
+                    <option th:value="6" th:text="6h_per_day"></option>
+                    <option th:value="4" th:text="4h_per_day"></option>
+                </div>
             </select>
+
         </div>
 
         <button type="Save" class="btn btn-success">Save</button>
