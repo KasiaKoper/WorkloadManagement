@@ -1,33 +1,32 @@
 package com.example.workload.controller;
 
 import com.example.workload.model.Employee;
+import com.example.workload.model.Task;
 import com.example.workload.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+@RequestMapping("/employees")
 @Controller
 public class EmployeeController {
 
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    @GetMapping("/employees/add")
+    @GetMapping("/add")
     public String getForm() {
         return "employeeForm";
     }
 
-    @PostMapping(path = "/employees")
+    @PostMapping(path = "")
     public String create(@ModelAttribute Employee employee) {
         employeeRepository.save(employee);
         return "redirect:/employees";       //przejdz do adresu URL i wyczysc wszystkie wyslane parametry
     }
 
-    @GetMapping("/employees")
+    @GetMapping("")
     public String getAll(ModelMap modelMap) {
         //findAll znajduje wszytskich uzytkownikow
         //ModelMap do przekazywanie zmiennych z Javy do Thymeleafa
@@ -42,6 +41,15 @@ public class EmployeeController {
 //        return "show";
 //    }
 
-
+    @GetMapping("/{id}")
+    public String showPost(@PathVariable Integer id, ModelMap modelMap){
+        Employee employee =employeeRepository.findById(id).get();
+        modelMap.put("employee",employee);
+        Task task=new Task();
+        task.setEmployee(employee);
+        modelMap.put("task", task);
+        modelMap.put("tasks",employee.getTasks());
+        return "taskByEmployee";
+    }
 
 }
