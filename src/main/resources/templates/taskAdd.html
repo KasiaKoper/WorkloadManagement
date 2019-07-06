@@ -16,12 +16,24 @@
     <form th:object="${task}" th:action="@{/tasks}" th:method="post">
         <div class="form-group">
             <label>Description</label>
-            <input th:field="*{description}" type="text"
+            <input th:field="*{description}" required type="text"
                    class="form-control input-small"
-                   placeholder="Description"> required
+                   placeholder="Description">
         </div>
-        <button type="submit" class="btn btn-primary btn-lg ">Add</button>
+        <div class="form-group">
+            <label>Preparation time (h)</label>
+            <input th:field="*{timeInHour}" required type="number" min="0" value="0" step=".05"
+                   class="form-control input-small"
+                   placeholder="Time in hours">
+        </div>
+        <br><br/>
+        <button type="submit" class="btn btn-success">Save</button>
     </form>
+
+    <br><br/>
+    <br><br/>
+    <a href="/" class="btn btn-primary">HOME</a>
+
 </div>
 
 

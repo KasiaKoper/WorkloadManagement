@@ -16,7 +16,7 @@
     </div>
 
     <h1>Employee:</h1>
-    <h3 th:text="${employee.name employee.surname}"></h3>
+    <h3 th:text="${employee.id}"></h3>
     <br><br/>
     <h2>Tasks:</h2>
     <ul class="list-group">
@@ -25,20 +25,20 @@
     </ul>
     <br><br/>
     <h3>Add next task</h3>
-    <form th:object="${task}" th:action="@{/employees/{id}}" th:method="post">
+    <form th:object="${task}" th:action="@{/employees}" th:method="post">
         <div class="form-group">
             <select class="form-control input-small">
                 <!--<select th:field="*{countryId}">-->
                 <option value=""> -- </option>
-                <option th:each="task : ${tasks}"
-                        th:value="${task.Id}"
-                        th:utext="${task.description}"/>
+                <!--<option th:each="task : ${tasks}"-->
+                        <!--th:value="${task.Id}"-->
+                        <!--th:utext="${task.description}"/>-->
             </select>
 
 
-            <select path="tasks">
-                <options items="${tasks}"></options>
-            </select>
+            <!--<select path="tasks">-->
+                <!--<options items="${tasks}"></options>-->
+            <!--</select>-->
 
             <!--<form:select path="tasks">-->
             <!--<form:options items="${tasks}"></form:options>-->

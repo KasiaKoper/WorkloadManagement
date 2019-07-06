@@ -17,13 +17,18 @@ public class TaskController {
     @Autowired
     private TaskRepository taskRepository;
 
-    @PostMapping("/add")
-    public String addTask(@ModelAttribute Task task, ModelMap modelMap) {
+    @GetMapping("/add")
+    public String addTask(ModelMap modelMap) {
+        modelMap.put("task", new Task());
+        return "taskAdd";
+    }
+
+    @PostMapping(path="")
+    public String addTask(@ModelAttribute Task task) {
         taskRepository.save(task);
-        modelMap.put("task", task);
-        //return "taskAdd";
         return "redirect:/tasks";
     }
+
 
     @GetMapping("")
     public String showTasks(ModelMap modelMap){

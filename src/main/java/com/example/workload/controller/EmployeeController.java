@@ -17,7 +17,7 @@ public class EmployeeController {
     private EmployeeRepository employeeRepository;
 
     @GetMapping("/add")
-    public String getForm(ModelMap modelMap) {
+    public String addEmployee(ModelMap modelMap) {
         modelMap.put("employee",new Employee());
         return "employeeForm";
     }
@@ -25,7 +25,7 @@ public class EmployeeController {
     @PostMapping(path = "")
     public String create(@ModelAttribute Employee employee) {
         employeeRepository.save(employee);
-        return "redirect:/";       //przejdz do adresu URL i wyczysc wszystkie wyslane parametry
+        return "redirect:/employees";       //przejdz do adresu URL i wyczysc wszystkie wyslane parametry
     }
 
     @GetMapping("")

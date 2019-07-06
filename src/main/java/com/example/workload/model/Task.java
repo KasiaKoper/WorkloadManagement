@@ -10,7 +10,7 @@ public class Task {
     private int id;
 
     private String description;
-    private double timeInHours;
+    private double timeInHour;
 
     @ManyToOne
     private Employee employee;
@@ -23,12 +23,12 @@ public class Task {
         this.id = id;
     }
 
-    public double getTimeInHours() {
-        return timeInHours;
+    public double getTimeInHour() {
+        return timeInHour;
     }
 
-    public void setTimeInHours(double timeInHours) {
-        this.timeInHours = timeInHours;
+    public void setTimeInHour(double timeInHour) {
+        this.timeInHour = timeInHour;
     }
 
     public String getDescription() {
