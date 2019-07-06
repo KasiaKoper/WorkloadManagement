@@ -12,7 +12,7 @@ public class Task {
     private String description;
     private double timeInHour;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Employee employee;
 
     public int getId() {

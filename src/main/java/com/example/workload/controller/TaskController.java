@@ -1,14 +1,12 @@
 package com.example.workload.controller;
 
+import com.example.workload.model.Employee;
 import com.example.workload.model.Task;
 import com.example.workload.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/tasks")
 @Controller
@@ -34,6 +32,17 @@ public class TaskController {
         modelMap.put("tasks",taskRepository.findAll());
         return "taskShow";
     }
+
+//    @GetMapping("/{id}")
+//    public String assignTask(@PathVariable Integer id, ModelMap modelMap){
+//        Task task =taskRepository.findById(id).get();
+//        modelMap.put("task",task);
+//        Employee employee=new Employee();
+//        task.setEmployee(employee);
+//        modelMap.put("task", task);
+//        modelMap.put("tasks",employee.getTasks());
+//        return "taskByEmployee";
+//    }
 
 
 }
