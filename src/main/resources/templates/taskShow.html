@@ -15,19 +15,36 @@
     </div>
 
     <h1>List of tasks</h1>
-    <ul class="list-group">
-        <li class="list-group-item" th:each="task: ${tasks}"
-            th:text="${task.description}"></li>
-    </ul>
+    <!--<ul class="list-group">-->
+        <!--<li class="list-group-item" th:each="task: ${tasks}"-->
+            <!--th:text="${task.description}"></li>-->
+    <!--</ul>-->
+
+    <table class="table table-striped">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Task</th>
+            <th scope="col">Time (h)</th>
+            <th scope="col">Assigned employee</th>
+        </tr>
+
+        <tr scope="col" th:each ="task : ${tasks}">
+        <td th:text="${task.id}">...</td>
+        <td th:text="${task.description}">...</td>
+        <td th:text="${task.timeInHour}">...</td>
+        <td th:text="${task.employee}">...</td>
+        <!--<td> <a th:href="${task.url()}">Show</a></td>-->
+        </tr>
+    </table>
+
+
+    <a href="/tasks/add" class="btn btn-success">New task</a>
+
+    <br><br/>
+    <br><br/>
+    <a href="/" class="btn btn-primary">HOME</a>
 
 </div>
-
-<a href="/tasks/add" class="btn btn-success">New task</a>
-
-<br><br/>
-<br><br/>
-<a href="/" class="btn btn-primary">HOME</a>
-
 
 </body>
 </html>

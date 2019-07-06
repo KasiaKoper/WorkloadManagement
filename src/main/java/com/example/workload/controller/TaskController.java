@@ -24,15 +24,14 @@ public class TaskController {
     }
 
     @PostMapping(path="")
-    public String addTask(@ModelAttribute Task task) {
+    public String createTask(@ModelAttribute Task task) {
         taskRepository.save(task);
         return "redirect:/tasks";
     }
 
-
     @GetMapping("")
     public String showTasks(ModelMap modelMap){
-        modelMap.put("task",taskRepository.findAll());
+        modelMap.put("tasks",taskRepository.findAll());
         return "taskShow";
     }
 
