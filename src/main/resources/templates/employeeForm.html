@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Employee Form</title>
@@ -13,14 +13,14 @@
     <h1>Input employee's data</h1>
     Please be informed that all below data is required!
     <br><br/>
-    <form action="/employees" method="post">
+    <form th:object="${employee}" th:action="@{/employees}" method="post">
         <div class="form-group">
             <label for="exampleInputName2">Name</label>
-            <input required type="text" class="form-control input-small" id="exampleInputName2" placeholder="Name">
+            <input th:field="*{name}" required type="text" class="form-control input-small" id="exampleInputName2" placeholder="Name">
         </div>
         <div class="form-group">
             <label for="exampleInputName3">Surname</label>
-            <input required type="text" class="form-control input-small" id="exampleInputName3" placeholder="Surname">
+            <input th:field="*{surname}" required type="text" class="form-control input-small" id="exampleInputName3" placeholder="Surname">
         </div>
 
         <div class="form-group">
@@ -46,6 +46,10 @@
 
         <button type="Save" class="btn btn-success">Save</button>
     </form>
+
+    <br><br/>
+    <br><br/>
+    <a href="/" class="btn btn-primary">HOME</a>
 
 </div>
 

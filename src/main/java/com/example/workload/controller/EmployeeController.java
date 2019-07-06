@@ -5,6 +5,7 @@ import com.example.workload.model.Task;
 import com.example.workload.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,14 +17,15 @@ public class EmployeeController {
     private EmployeeRepository employeeRepository;
 
     @GetMapping("/add")
-    public String getForm() {
+    public String getForm(ModelMap modelMap) {
+        modelMap.put("employee",new Employee());
         return "employeeForm";
     }
 
     @PostMapping(path = "")
     public String create(@ModelAttribute Employee employee) {
         employeeRepository.save(employee);
-        return "redirect:/employees";       //przejdz do adresu URL i wyczysc wszystkie wyslane parametry
+        return "redirect:/";       //przejdz do adresu URL i wyczysc wszystkie wyslane parametry
     }
 
     @GetMapping("")
