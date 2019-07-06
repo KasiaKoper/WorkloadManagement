@@ -25,7 +25,7 @@ public class EmployeeController {
     @PostMapping(path = "")
     public String create(@ModelAttribute Employee employee) {
         employeeRepository.save(employee);
-        return "redirect:/employees";       //przejdz do adresu URL i wyczysc wszystkie wyslane parametry
+        return "redirect:/employees/"+employee.getId();       //przejdz do adresu URL i wyczysc wszystkie wyslane parametry
     }
 
     @GetMapping("")
@@ -44,7 +44,7 @@ public class EmployeeController {
 //    }
 
     @GetMapping("/{id}")
-    public String showPost(@PathVariable Integer id, ModelMap modelMap){
+    public String showEmployee(@PathVariable Integer id, ModelMap modelMap){
         Employee employee =employeeRepository.findById(id).get();
         modelMap.put("employee",employee);
         Task task=new Task();

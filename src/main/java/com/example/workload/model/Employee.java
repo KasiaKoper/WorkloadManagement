@@ -20,6 +20,10 @@ public class Employee {
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Task> tasks = new ArrayList<>();
 
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }

@@ -26,6 +26,7 @@
             <th scope="col">Task</th>
             <th scope="col">Time (h)</th>
             <th scope="col">Assigned employee</th>
+            <th scope="col">Action</th>
         </tr>
 
         <tr scope="col" th:each ="task : ${tasks}">
@@ -33,7 +34,10 @@
         <td th:text="${task.description}">...</td>
         <td th:text="${task.timeInHour}">...</td>
         <td th:text="${task.employee}">...</td>
-        <!--<td> <a th:href="${task.url()}">Show</a></td>-->
+        <td>
+            <a href="/tasks/{id}">Assign</a>
+        </td>
+            <!--<td> <a th:href="${task.url()}">Show</a></td>-->
         </tr>
     </table>
 

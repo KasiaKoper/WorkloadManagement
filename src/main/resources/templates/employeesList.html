@@ -8,8 +8,10 @@
 
 <body>
 
-<div class="table-responsive">
-    <h3>Employees</h3>
+
+<div class="container">
+
+    <h1>Employees</h1>
     <table class="table table-striped">
         <tr>
             <th scope="col">Name</th>
@@ -26,14 +28,14 @@
             <!--<td> <a th:href="${employee.url()}">Show</a></td>-->
         <!--</tr>-->
     </table>
+
+    <a href="/employees/add" class="btn btn-success">New employee</a>
+
+    <br><br/>
+    <br><br/>
+    <a href="/" class="btn btn-primary">HOME</a>
+
 </div>
-
-<a href="/employees/add" class="btn btn-success">New employee</a>
-
-<br><br/>
-<br><br/>
-<a href="/" class="btn btn-primary">HOME</a>
-
 
 </body>
 </html>

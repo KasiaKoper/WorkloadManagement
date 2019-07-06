@@ -15,8 +15,9 @@
         <strong th:if="${message}" th:text="${message}"></strong>
     </div>
 
-    <h1>Employee:</h1>
-    <h3 th:text="${employee.id}"></h3>
+    <h2>Employee:</h2>
+    <h3 th:text="${employee.name}"></h3>
+    <h3 th:text="${employee.surname}"></h3>
     <br><br/>
     <h2>Tasks:</h2>
     <ul class="list-group">
@@ -25,18 +26,17 @@
     </ul>
     <br><br/>
     <h3>Add next task</h3>
-    <form th:object="${task}" th:action="@{/employees}" th:method="post">
-        <div class="form-group">
-            <select class="form-control input-small">
-                <!--<select th:field="*{countryId}">-->
-                <option value=""> -- </option>
-                <!--<option th:each="task : ${tasks}"-->
-                        <!--th:value="${task.Id}"-->
-                        <!--th:utext="${task.description}"/>-->
-            </select>
+    <form th:object="${task}" th:action="@{/employees/{id}}" th:method="post">
+                <select th:field="*{employee}" class="form-control input-small">
+                    <div>
+                        <option value=""> -- </option>
+                        <option th:each="task : ${tasks}"
+                                th:value="${task.Id}"
+                                th:utext="${task.description}"></option>
+                    </div>
+                </select>
 
-
-            <!--<select path="tasks">-->
+        <!--<select path="tasks">-->
                 <!--<options items="${tasks}"></options>-->
             <!--</select>-->
 
@@ -44,9 +44,7 @@
             <!--<form:options items="${tasks}"></form:options>-->
             <!--</form:select>-->
 
-
-        </div>
-
+    <br><br/>
         <button type="submit" class="btn btn-primary btn-lg ">Add</button>
     </form>
 
