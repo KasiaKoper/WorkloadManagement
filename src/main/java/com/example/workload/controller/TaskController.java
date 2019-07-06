@@ -21,11 +21,11 @@ public class TaskController {
     public String addTask(@ModelAttribute Task task, ModelMap modelMap) {
         taskRepository.save(task);
         modelMap.put("task", task);
-        return "taskAdd";
-        //return "redirect:/tasks";
+        //return "taskAdd";
+        return "redirect:/tasks";
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public String showTasks(ModelMap modelMap){
         modelMap.put("task",taskRepository.findAll());
         return "taskShow";
