@@ -1,6 +1,7 @@
 package com.example.workload.model;
 
 import javax.persistence.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,16 @@ public class Employee {
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Task> tasks = new ArrayList<>();
 
+    //methods
+    public double spareCapacity(){
+        double taskTime=0;
+        for (Task task : this.tasks) {
+            taskTime+=task.getTimeInHour();
+        }
+        return this.capacity-taskTime;
+    }
+
+    //gettery & settery
     public int getId() {
         return id;
     }

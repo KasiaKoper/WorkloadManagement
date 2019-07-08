@@ -17,7 +17,9 @@
             <th scope="col">Name</th>
             <th scope="col">Surname</th>
             <th scope="col">Role</th>
-            <th scope="col">Capacity</th>
+            <th scope="col">Working time</th>
+            <th scope="col">Spare capacity</th>
+            <th scope="col">Action</th>
         </tr>
 
         <tr scope="col" th:each ="employee : ${employees}">
@@ -25,7 +27,10 @@
             <td th:text="${employee.surname}">...</td>
             <td th:text="${employee.role}">...</td>
             <td th:text="${employee.capacity}">...</td>
-            <!--<td> <a th:href="${employee.url()}">Show</a></td>-->
+            <td th:text="${employee.spareCapacity()}">...</td>
+            <!--<td><a href="/employees/"+ ${employee.id}">Show</a> </td>-->
+                <!--<a th:href="/employees/"+"${employee.id}">Show</a></td>-->
+            <td> <a th:href="${employee.id}">Show</a></td>
         </tr>
     </table>
 
