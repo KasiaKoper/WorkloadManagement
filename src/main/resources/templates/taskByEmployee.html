@@ -24,13 +24,14 @@
     <h2>Assigned tasks:</h2>
     <ul class="list-group">
         <li class="list-group-item" th:each="task: ${tasks}"
-            th:text="${task}"></li>
+            th:text="${task.description}"></li>
     </ul>
     <br><br/>
     <h3>Add next task</h3>
     <form th:object="${task}" th:action="@{/employees/{id}}" th:method="post">
-                <select th:field="*{employee}" class="form-control input-small">
+                <select th:field="*{team}" class="form-control input-small">
                     <div>
+                        <!--tu musza byc wszystkie zadania, a nie tylko danego pracownika-->
                         <option value=""> -- </option>
                         <option th:each="task : ${tasks}"
                                 th:value="${task.Id}"
