@@ -18,6 +18,8 @@
     <h2>Employee:</h2>
     <h3 th:text="${employee.name}"></h3>
     <h3 th:text="${employee.surname}"></h3>
+    <p>Spare capacity: </p>
+    <h3 th:text="${employee.spareCapacity()}"></h3>
     <br><br/>
     <h2>Assigned tasks:</h2>
     <ul class="list-group">
