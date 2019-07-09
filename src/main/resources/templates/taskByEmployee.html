@@ -15,13 +15,12 @@
         <strong th:if="${message}" th:text="${message}"></strong>
     </div>
 
-    <h2>Employee:</h2>
-    <h3 th:text="${employee.name}"></h3>
-    <h3 th:text="${employee.surname}"></h3>
-    <p>Spare capacity: </p>
-    <h3 th:text="${employee.spareCapacity()}"></h3>
+    <h2><i>Employee:</i></h2>
+    <h3 th:text="${employee.name}+' '+${employee.surname}"></h3>
+    <br></br>
+    <h4 th:text="'Spare capacity: '+${employee.spareCapacity()}"></h4>
     <br><br/>
-    <h2>Assigned tasks:</h2>
+    <h2><i>Assigned tasks:</i></h2>
     <ul class="list-group">
         <li class="list-group-item" th:each="task: ${tasks}"
             th:text="${task.description}"></li>
@@ -29,7 +28,7 @@
     <br><br/>
     <h3>Add next task</h3>
     <form th:object="${task}" th:action="@{/employees/{id}}" th:method="post">
-                <select th:field="*{team}" class="form-control input-small">
+                <select th:field="*{employee}" class="form-control input-small">
                     <div>
                         <!--tu musza byc wszystkie zadania, a nie tylko danego pracownika-->
                         <option value=""> -- </option>
@@ -51,7 +50,6 @@
         <button type="submit" class="btn btn-success">Add</button>
     </form>
 
-    <br><br/>
     <br><br/>
     <a href="/employees" class="btn btn-primary">EMPLOYEES</a>
 
