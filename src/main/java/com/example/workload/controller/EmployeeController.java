@@ -3,6 +3,7 @@ package com.example.workload.controller;
 import com.example.workload.model.Employee;
 import com.example.workload.model.Task;
 import com.example.workload.repository.EmployeeRepository;
+import com.example.workload.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,8 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeRepository employeeRepository;
+    @Autowired
+    private TaskRepository taskRepository;
 
     @GetMapping("/add")
     public String addEmployee(ModelMap modelMap) {
@@ -50,8 +53,19 @@ public class EmployeeController {
         Task task=new Task();
         task.setEmployee(employee);
         modelMap.put("task", task);
-        modelMap.put("tasks",employee.getTasks());
+        modelMap.put("myTasks",employee.getTasks());
+        modelMap.put("tasks",taskRepository.findAll());
         return "taskByEmployee";
+    }
+
+    @PostMapping("/{id}")
+    public String addtask(@PathVariable Integer id,
+                          @ModelAttribute Task task){
+        Employee employee=employeeRepository.findById(id).get();    //optional
+        Task task2=taskRepository.findById(task.getId()).get();
+        task2.setEmployee(employee);
+        taskRepository.save(task2);
+        return "redirect:/employees/" + employee.getId();
     }
 
 }

@@ -22,16 +22,16 @@
     <br><br/>
     <h2><i>Assigned tasks:</i></h2>
     <ul class="list-group">
-        <li class="list-group-item" th:each="task: ${tasks}"
+        <li class="list-group-item" th:each="task: ${myTasks}"
             th:text="${task.description}"></li>
     </ul>
     <br><br/>
     <h3>Add next task</h3>
-    <form th:object="${task}" th:action="@{/employees/{id}}" th:method="post">
-                <select th:field="*{employee}" class="form-control input-small">
+    <form th:object="${task}" th:action="@{/employees.url}" th:method="post">
+                <select name="Id" class="form-control input-small">
                     <div>
                         <!--tu musza byc wszystkie zadania, a nie tylko danego pracownika-->
-                        <option value=""> -- </option>
+
                         <option th:each="task : ${tasks}"
                                 th:value="${task.Id}"
                                 th:utext="${task.description}"></option>

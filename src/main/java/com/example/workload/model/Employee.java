@@ -86,4 +86,9 @@ public class Employee {
         this.team = team;
     }
 
+
+    public String getUrl(){
+        return "/employees/"+getId();
+    }
+
 }
