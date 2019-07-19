@@ -18,9 +18,6 @@ public class Employee {
     private String role;
     private int capacity;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Team team;
-
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Task> tasks = new ArrayList<>();
 
@@ -77,15 +74,6 @@ public class Employee {
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
-
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-    }
-
 
     public String getUrl(){
         return "/employees/"+getId();

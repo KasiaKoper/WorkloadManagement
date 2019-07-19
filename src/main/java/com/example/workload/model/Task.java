@@ -15,9 +15,6 @@ public class Task {
     @ManyToOne(cascade = CascadeType.ALL)
     private Employee employee;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Team team;
-
 
     public int getId() {
         return id;
@@ -51,11 +48,4 @@ public class Task {
         this.employee = employee;
     }
 
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-    }
 }
