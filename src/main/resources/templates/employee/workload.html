@@ -30,21 +30,11 @@
     <form th:object="${task}" th:action="${employee.url}" th:method="post">
                 <select name="id" class="form-control input-small">
                     <div>
-                        <!--tu musza byc wszystkie zadania, a nie tylko danego pracownika-->
-
                         <option th:each="task : ${tasks}"
                                 th:value="${task.id}"
                                 th:utext="${task.description}"></option>
                     </div>
                 </select>
-
-        <!--<select path="tasks">-->
-                <!--<options items="${tasks}"></options>-->
-            <!--</select>-->
-
-            <!--<form:select path="tasks">-->
-            <!--<form:options items="${tasks}"></form:options>-->
-            <!--</form:select>-->
 
     <br><br/>
         <button type="submit" class="btn btn-success">Add</button>

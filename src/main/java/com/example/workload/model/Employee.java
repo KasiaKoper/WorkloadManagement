@@ -12,7 +12,6 @@ public class Employee {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
 
-    //private task_id
     private String name;
     private String surname;
     private String role;
@@ -30,7 +29,13 @@ public class Employee {
         return this.capacity-taskTime;
     }
 
+
     //gettery & settery
+
+    public String getUrl(){
+        return "/employees/"+getId();
+    }
+
     public int getId() {
         return id;
     }
@@ -75,8 +80,5 @@ public class Employee {
         this.tasks = tasks;
     }
 
-    public String getUrl(){
-        return "/employees/"+getId();
-    }
 
 }
