@@ -1,6 +1,5 @@
 package com.example.workload.controller;
 
-import com.example.workload.model.Employee;
 import com.example.workload.model.Task;
 import com.example.workload.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ public class TaskController {
     @GetMapping("/add")
     public String addTask(ModelMap modelMap) {
         modelMap.put("task", new Task());
-        return "taskAdd";
+        return "task/add";
     }
 
     @PostMapping(path="")
@@ -30,7 +29,7 @@ public class TaskController {
     @GetMapping("")
     public String showTasks(ModelMap modelMap){
         modelMap.put("tasks",taskRepository.findAll());
-        return "taskShow";
+        return "task/show";
     }
 
 //    @GetMapping("/{id}")
