@@ -80,5 +80,8 @@ public class Employee {
         this.tasks = tasks;
     }
 
-
+    @Override
+    public String toString() {
+        return name + " " + surname;
+    }
 }
