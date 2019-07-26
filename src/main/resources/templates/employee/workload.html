@@ -23,7 +23,7 @@
     <h2><i>Assigned tasks:</i></h2>
     <ul class="list-group">
         <li class="list-group-item" th:each="task: ${myTasks}"
-            th:text="${task.description}"></li>
+            th:text="${task.description} + '  '+ ${task.timeInHour}"></li>
     </ul>
     <br><br/>
     <h3>Add next task</h3>
