@@ -20,11 +20,25 @@
     <br></br>
     <h4 th:text="'Spare capacity: '+${employee.spareCapacity()}"></h4>
     <br><br/>
-    <h2><i>Assigned tasks:</i></h2>
-    <ul class="list-group">
-        <li class="list-group-item" th:each="task: ${myTasks}"
-            th:text="${task.description} + '  '+ ${task.timeInHour}"></li>
-    </ul>
+    <!--<h2><i>Assigned tasks:</i></h2>-->
+    <!--<ul class="list-group">-->
+        <!--<li class="list-group-item" th:each="task: ${myTasks}"-->
+            <!--th:text="${task.description} + '  '+ ${task.timeInHour}"></li>-->
+    <!--</ul>-->
+
+    <h3><i>Assigned tasks</i></h3>
+    <table class="table table-striped">
+        <tr>
+            <th scope="col">Tasks</th>
+            <th scope="col">Time (in hour)</th>
+        </tr>
+
+        <tr scope="col" th:each ="task : ${myTasks}">
+            <td th:text="${task.description}">...</td>
+            <td th:text="${task.timeInHour}">...</td>
+        </tr>
+    </table>
+
     <br><br/>
     <h3>Add next task</h3>
     <form th:object="${task}" th:action="${employee.url}" th:method="post">
